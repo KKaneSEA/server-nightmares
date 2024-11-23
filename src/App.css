@@ -19,11 +19,12 @@ body {
 }
 
 .game-container {
-  width: 95%;
+  padding-top: 0.2rem;
+  width: 100%;
   height: 90%;
-  background-color: rosybrown;
+  background-color: white;
   display: flex;
-  align-items: center;
+
   justify-content: center;
   flex-direction: row;
 }
@@ -31,19 +32,34 @@ body {
 .scene {
   padding: 0;
   margin: 0;
-  width: 80%;
-  height: 100%;
+  width: 77%;
+  height: 70vh;
   background-color: blue;
 }
 
-.tips {
-  font-size: 2rem;
+.scene-canvas {
+  height: 100%;
 }
+
+.tips {
+  padding-left: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.table-text {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .controls-container {
   display: flex;
   justify-items: center;
 
-  width: 20%;
+  width: 100%;
   height: 70%;
 }
 
@@ -58,44 +74,137 @@ body {
 }
 
 .grid-item1 {
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
 
-  border: 1px black solid;
+  border: 2px black solid;
   background-color: pink;
   grid-column-start: 1;
   grid-column-end: 4;
 }
 .grid-item2 {
+  font-size: 1.5rem;
   background-color: orange;
   border: 2px black solid;
 }
 .grid-item3 {
+  font-size: 1.5rem;
   background-color: white;
 }
 .grid-item4 {
+  font-size: 1.5rem;
   border: 2px black solid;
   background-color: green;
 }
 .grid-item5 {
+  font-size: 1.5rem;
   border: 2px black solid;
   background-color: yellow;
 }
 .grid-item6 {
+  font-size: 1.5rem;
   background-color: white;
 }
 .grid-item7 {
+  font-size: 1.5rem;
   border: 2px black solid;
   background-color: fuchsia;
 }
 .grid-item8 {
+  font-size: 1.5rem;
   border: 2px black solid;
   background-color: goldenrod;
 }
 .grid-item9 {
+  font-size: 1.5rem;
   background-color: white;
 }
 .grid-item10 {
+  font-size: 1.5rem;
   border: 2px black solid;
   background-color: honeydew;
+}
+
+.sound-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.sound-text {
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+
+  padding-right: 1rem;
+  width: 100%;
+
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
+.switch {
+  margin-left: 0.3rem;
+  position: relative;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+
+  width: 39px;
+  height: 23px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: tomato;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: 1px solid black;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: lightgreen;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px lightgreen;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

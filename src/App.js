@@ -5,14 +5,31 @@ import Loading from "./Loading";
 
 import { Canvas } from "@react-three/fiber";
 
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 function App() {
+  const [soundState, setSoundState] = useState(true);
+  function toggleSoundState() {
+    setSoundState(!soundState);
+  }
   return (
     <div className="container">
       <main className="main">
         <h1>SERVER NIGHTMARES</h1>
-        <div>Hear your managers voice: </div>
+        <div className="sound-container">
+          <span className="sound-text">
+            Click to hear your manager's voice
+            <label className="switch">
+              <input
+                type="checkbox"
+                onClick={(e) => {
+                  toggleSoundState();
+                }}
+              />
+              <span className="slider round"></span>
+            </label>
+          </span>
+        </div>
         <div className="game-container">
           <div className="scene">
             <Canvas
@@ -30,7 +47,7 @@ function App() {
               </mesh>
             </Canvas>
           </div>
-          <div className="control-container">
+          <div className="controls-container">
             <div className="tips">Tips: $100</div>
             <div className="controls-grid">
               <button
